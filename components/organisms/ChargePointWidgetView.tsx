@@ -6,15 +6,15 @@
  */
 import React, {useEffect, useState} from 'react';
 import {
-  Pressable,
   ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
-import { ChargingStation, ChargingPointType } from './ChargingStation.tsx';
-import { SHOW_ALL, SHOW_LESS } from './constants.ts';
+import { ChargingStation, ChargingPointType } from '../molecules/ChargingStation.tsx';
+import { SHOW_ALL, SHOW_LESS } from '../../constants.ts';
+import { Button } from '../atoms/button.tsx';
 
 
 export const ChargePointWidgetView = ({chargePoints}: {chargePoints:ChargingPointType[]}): React.JSX.Element  => {
@@ -51,9 +51,7 @@ export const ChargePointWidgetView = ({chargePoints}: {chargePoints:ChargingPoin
             <View style={styles.view}>
               {generateChargingStations()}
             </View>
-            <Pressable style={styles.button} onPress={toggleShowAll} testID={"show"}> 
-              <Text style={styles.buttonText}>{showAll ? SHOW_ALL : SHOW_LESS}</Text> 
-            </Pressable>
+            <Button text={showAll ? SHOW_ALL : SHOW_LESS} onClick={toggleShowAll}/>
       </ScrollView>
   );
 }
@@ -107,16 +105,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flexDirection: "column",
     display: 'flex',
-  },
-  button: {
-    borderRadius: 20,
-    borderWidth: 1,
-    backgroundColor: "#ffffff",
-    paddingVertical: 8,
-    borderColor: '#002899'
-  },
-  buttonText: {
-    textAlign: 'center',
   }
 });
 

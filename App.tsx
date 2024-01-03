@@ -17,7 +17,7 @@ type SectionProps = PropsWithChildren<{
 }>;
 
 import { gql } from '@apollo/client';
-import ChargePointWidget from './ChargePointWidget';
+import ChargePointWidget from './components/pages/ChargePointWidget';
 
 export const CHARGE_POINTS_QUERY = gql(/* GraphQL */ `
 {getAllChargePoints {

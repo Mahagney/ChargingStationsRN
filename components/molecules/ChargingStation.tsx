@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
-import Logo from "./assets/RightArrow.svg"
-import Star from "./assets/star.svg";
+import Logo from "../../assets/RightArrow.svg"
+import Star from "../../assets/star.svg";
 
 const calculateDistance = (distance: number) => {
     return distance>1000 ? `${distance/1000}km` : `${distance}m`;

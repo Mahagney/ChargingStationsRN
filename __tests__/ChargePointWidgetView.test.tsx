@@ -1,7 +1,7 @@
 import {ReactTestRenderer, act, create} from 'react-test-renderer';
-import { ChargingPointType } from '../ChargingStation.tsx';
+import { ChargingPointType } from '../components/molecules/ChargingStation.tsx';
 import {expect, it} from '@jest/globals';
-import ChargePointWidgetView from '../ChargePointWidgetView.tsx';
+import ChargePointWidgetView from '../components/organisms/ChargePointWidgetView.tsx';
 
 jest.mock('../assets/star.svg', () => () => null) 
 jest.mock('../assets/RightArrow.svg', () => () => null) 

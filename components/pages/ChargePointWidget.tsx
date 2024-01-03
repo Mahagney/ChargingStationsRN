@@ -1,20 +1,9 @@
 import React, {useState} from 'react';
 
-import {  ChargingPointType } from './ChargingStation';
+import {  ChargingPointType } from '../molecules/ChargingStation.tsx';
 import { gql, useQuery } from '@apollo/client';
-import {ChargePointWidgetView} from './ChargePointWidgetView.tsx';
-
-export const CHARGE_POINTS_QUERY = gql(/* GraphQL */ `
-{getAllChargePoints {
-    stationName
-    location
-    availableChargePoints
-    totalChargePoints
-    isFavourite
-    distance
-}}
-`);
-
+import {ChargePointWidgetView} from '../organisms/ChargePointWidgetView.tsx';
+import { CHARGE_POINTS_QUERY } from '../../graphql/queries.ts';
 
 export const ChargePointWidget = (): React.JSX.Element  => {
   const [chargePoints, setChargePoints] = useState<ChargingPointType[]>([]);
@@ -30,7 +19,7 @@ export const ChargePointWidget = (): React.JSX.Element  => {
   }
 
   const FetchChargePoints = () => {
-    console.log("Fetch called");
+    console.log("Fetch chargePoints called");
     const { loading, error, data } = useQuery(CHARGE_POINTS_QUERY, {
       onCompleted: () => {
         const cps =[...data.getAllChargePoints].sort(compareDistances);
