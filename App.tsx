@@ -4,20 +4,19 @@
  *
  * @format
  */
-import { Logs } from 'expo'
-
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
   useColorScheme,
 } from 'react-native';
+// import { Logs } from 'expo'
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-import { gql, useQuery } from '@apollo/client';
+import { gql } from '@apollo/client';
 import ChargePointWidget from './ChargePointWidget';
 
 export const CHARGE_POINTS_QUERY = gql(/* GraphQL */ `
@@ -35,7 +34,7 @@ export const CHARGE_POINTS_QUERY = gql(/* GraphQL */ `
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
-  Logs.enableExpoCliLogging()
+  // Logs.enableExpoCliLogging()
   console.log( ' ~~ EXPO CONSOLE LOGGING ENABLED ~~' )
 
   return (
